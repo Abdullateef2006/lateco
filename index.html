@@ -516,6 +516,7 @@
             border-right: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             transition: background .3s, border-color .35s;
+            flex-direction: column;
         }
 
         .skill-item:hover {
@@ -1545,6 +1546,14 @@
                 /* Hide main nav buttons when menu is open because sidebar header shows them */
             }
 
+            nav.menu-open {
+                pointer-events: none !important; /* Let clicks pass through transparent nav to the sidebar buttons */
+            }
+
+            nav.menu-open .mobile-menu-btn {
+                pointer-events: auto !important; /* Keep mobile close button clickable */
+            }
+
             .mobile-menu-btn {
                 display: flex;
             }
@@ -1614,6 +1623,39 @@
             cursor: not-allowed;
             pointer-events: none;
         }
+
+        .skills-page-btn {
+            width: 36px;
+            height: 36px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--borderL);
+            background: transparent;
+            color: var(--fg);
+            cursor: none;
+            transition: all .25s ease;
+            border-radius: 4px;
+        }
+
+        .skills-page-btn:hover {
+            background: var(--bg3);
+            border-color: var(--fg2);
+        }
+
+        .skills-page-btn.active {
+            background: var(--fg);
+            color: var(--bg);
+            border-color: var(--fg);
+        }
+
+        .skills-page-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -1656,11 +1698,8 @@
         <div class="sidebar-header">
             <a href="#hero" class="nav-logo" data-en="OA" data-ar="ع·ا" onclick="toggleMobileMenu()">OA</a>
             <div class="sidebar-controls">
-                <button class="ctrl-btn lang-btn" id="sidebarLangBtn" title="Toggle language"
-                    onclick="toggleLang(); toggleMobileMenu();">AR</button>
-                <button class="ctrl-btn" id="sidebarThemeBtn" title="Toggle theme" onclick="toggleTheme()">
-                    <i class="fas fa-moon theme-icon" id="sidebarThemeIcon"></i>
-                </button>
+              
+             
             </div>
         </div>
         <nav class="sidebar-nav">
@@ -1809,7 +1848,7 @@
         <div class="sec-label" data-num="02" data-en="Skills" data-ar="المهارات">Skills</div>
         <h2 class="sec-title reveal" data-en="Technical<br>Proficiency" data-ar="الكفاءة<br>التقنية">
             Technical<br>Proficiency</h2>
-        <div class="skills-grid reveal">
+        <div class="skills-grid reveal" id="tech-skills-grid">
             <div class="skill-item" data-pct="90">
                 <div class="skill-name">HTML</div>
                 <div class="skill-bar">
@@ -1928,6 +1967,29 @@
                     <div class="skill-fill"></div>
                 </div>
                 <div class="skill-pct">70%</div>
+            </div>
+        </div>
+
+        <!-- SKILLS PAGINATION CONTROLS -->
+        <div class="skills-pagination"
+            style="margin-top: 3.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+            <div id="skills-page-info"
+                style="font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--fg2); letter-spacing: 0.05em;">
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <button id="skills-prev-btn" class="btn"
+                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
+                    onclick="changeSkillsPage(-1)">
+                    <i class="fas fa-arrow-left" style="font-size: 0.78rem;"></i>
+                    <span data-en="Prev" data-ar="السابق">Prev</span>
+                </button>
+                <div id="skills-page-numbers" style="display: flex; align-items: center; gap: 0.5rem;"></div>
+                <button id="skills-next-btn" class="btn"
+                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
+                    onclick="changeSkillsPage(1)">
+                    <span data-en="Next" data-ar="التالي">Next</span>
+                    <i class="fas fa-arrow-right" style="font-size: 0.78rem;"></i>
+                </button>
             </div>
         </div>
 
@@ -2740,7 +2802,127 @@
         }
 
         // Set global hook so toggleLang can trigger updates
-        window.updatePagination = updateProjectsPagination;
+        window.updatePagination = () => {
+            updateProjectsPagination();
+            if (window.updateSkillsPagination) window.updateSkillsPagination();
+        };
+
+        /* ─── SKILLS PAGINATION ─── */
+        let currentSkillsPage = 1;
+        const skillItemsList = Array.from(document.querySelectorAll('#tech-skills-grid .skill-item'));
+        const totalSkills = skillItemsList.length;
+
+        function getSkillsPerPage() {
+            // Mobile (width <= 600px): 5 skills per page
+            // Tablet / Desktop: 10 skills per page
+            return window.innerWidth <= 600 ? 5 : 10;
+        }
+
+        function updateSkillsPagination() {
+            const skillsPerPage = getSkillsPerPage();
+            const totalSkillsPages = Math.ceil(totalSkills / skillsPerPage);
+
+            // Bounds check
+            if (currentSkillsPage > totalSkillsPages) {
+                currentSkillsPage = totalSkillsPages;
+            }
+            if (currentSkillsPage < 1) {
+                currentSkillsPage = 1;
+            }
+
+            const startIdx = (currentSkillsPage - 1) * skillsPerPage;
+            const endIdx = startIdx + skillsPerPage;
+
+            // Show/hide skills
+            skillItemsList.forEach((item, index) => {
+                if (index >= startIdx && index < endIdx) {
+                    item.style.display = 'flex';
+                    // Re-trigger visual fills after display:flex has painted
+                    const pct = item.dataset.pct;
+                    const fill = item.querySelector('.skill-fill');
+                    if (fill) {
+                        fill.style.width = '0'; // reset first so transition re-fires
+                        setTimeout(() => {
+                            requestAnimationFrame(() => {
+                                fill.style.width = pct + '%';
+                            });
+                        }, 30);
+                    }
+                } else {
+                    item.style.display = 'none';
+                    const fill = item.querySelector('.skill-fill');
+                    if (fill) fill.style.width = '0'; // reset hidden items
+                }
+            });
+
+            // Update Info text
+            const displayStart = startIdx + 1;
+            const displayEnd = Math.min(endIdx, totalSkills);
+            const infoEl = document.getElementById('skills-page-info');
+            if (infoEl) {
+                if (isAr) {
+                    infoEl.textContent = `عرض ${displayStart}–${displayEnd} من ${totalSkills} مهارات`;
+                } else {
+                    infoEl.textContent = `Showing ${displayStart}–${displayEnd} of ${totalSkills} skills`;
+                }
+            }
+
+            // Render numeric page buttons
+            const numContainer = document.getElementById('skills-page-numbers');
+            if (numContainer) {
+                numContainer.innerHTML = '';
+                for (let i = 1; i <= totalSkillsPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = `skills-page-btn ${i === currentSkillsPage ? 'active' : ''}`;
+                    btn.textContent = i.toString().padStart(2, '0');
+                    btn.onclick = () => {
+                        currentSkillsPage = i;
+                        updateSkillsPagination();
+                        scrollToSkills();
+                    };
+                    numContainer.appendChild(btn);
+                }
+            }
+
+            // Enable/disable navigation buttons
+            const prevBtn = document.getElementById('skills-prev-btn');
+            const nextBtn = document.getElementById('skills-next-btn');
+            if (prevBtn) prevBtn.disabled = currentSkillsPage === 1;
+            if (nextBtn) nextBtn.disabled = currentSkillsPage === totalSkillsPages;
+        }
+
+        function changeSkillsPage(dir) {
+            const skillsPerPage = getSkillsPerPage();
+            const totalSkillsPages = Math.ceil(totalSkills / skillsPerPage);
+            const newPage = currentSkillsPage + dir;
+            if (newPage >= 1 && newPage <= totalSkillsPages) {
+                currentSkillsPage = newPage;
+                updateSkillsPagination();
+                scrollToSkills();
+            }
+        }
+
+        function scrollToSkills() {
+            const sec = document.getElementById('skills');
+            if (sec) {
+                sec.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize skills pagination
+        if (document.readyState === 'loading') {
+            window.addEventListener('DOMContentLoaded', () => {
+                updateSkillsPagination();
+            });
+        } else {
+            updateSkillsPagination();
+        }
+
+        window.addEventListener('resize', () => {
+            updateSkillsPagination();
+        });
+
+        window.updateSkillsPagination = updateSkillsPagination;
 
         /* ─── SCROLLSPY WITH ANIMATED UNDERLINE ─── */
         const spySections = document.querySelectorAll('section[id]');
