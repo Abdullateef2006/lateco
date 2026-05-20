@@ -1624,37 +1624,53 @@
             pointer-events: none;
         }
 
-        .skills-page-btn {
-            width: 36px;
-            height: 36px;
+        /* ─── SKILLS CATEGORY TABS ─── */
+        .skills-tabs {
+            width: 100%;
+        }
+
+        .stab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            transition: border-color .35s;
+        }
+
+        .stab-btn {
             font-family: 'DM Mono', monospace;
-            font-size: 0.88rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.1rem;
             border: 1px solid var(--borderL);
             background: transparent;
-            color: var(--fg);
+            color: var(--fg2);
             cursor: none;
-            transition: all .25s ease;
-            border-radius: 4px;
+            border-radius: 2px;
+            transition: all 0.25s ease;
         }
 
-        .skills-page-btn:hover {
-            background: var(--bg3);
+        .stab-btn:hover {
+            color: var(--fg);
             border-color: var(--fg2);
+            background: var(--bg3);
         }
 
-        .skills-page-btn.active {
+        .stab-btn.active {
             background: var(--fg);
             color: var(--bg);
             border-color: var(--fg);
         }
 
-        .skills-page-btn:disabled {
-            opacity: 0.35;
-            cursor: not-allowed;
-            pointer-events: none;
+        .stab-panel {
+            display: none;
+        }
+
+        .stab-panel.active {
+            display: block;
         }
     </style>
 </head>
@@ -1846,150 +1862,69 @@
     <!-- SKILLS -->
     <section id="skills">
         <div class="sec-label" data-num="02" data-en="Skills" data-ar="المهارات">Skills</div>
-        <h2 class="sec-title reveal" data-en="Technical<br>Proficiency" data-ar="الكفاءة<br>التقنية">
-            Technical<br>Proficiency</h2>
-        <div class="skills-grid reveal" id="tech-skills-grid">
-            <div class="skill-item" data-pct="90">
-                <div class="skill-name">HTML</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">90%</div>
+        <!-- SKILLS CATEGORY TABS -->
+        <div class="skills-tabs reveal" id="skills-tabs" style="margin-top:3.5rem;">
+            <div class="stab-nav" id="stab-nav">
+                <button class="stab-btn active" data-cat="frontend" data-en="Frontend" data-ar="الواجهات" onclick="switchSkillTab('frontend', this)">Frontend</button>
+                <button class="stab-btn" data-cat="backend" data-en="Backend" data-ar="الخوادم" onclick="switchSkillTab('backend', this)">Backend</button>
+                <button class="stab-btn" data-cat="mobile" data-en="Mobile" data-ar="الجوال" onclick="switchSkillTab('mobile', this)">Mobile</button>
+                <button class="stab-btn" data-cat="cloud" data-en="Cloud &amp; Hosting" data-ar="السحابة والاستضافة" onclick="switchSkillTab('cloud', this)">Cloud &amp; Hosting</button>
+                <button class="stab-btn" data-cat="systems" data-en="Languages" data-ar="اللغات" onclick="switchSkillTab('systems', this)">Languages</button>
             </div>
-            <div class="skill-item" data-pct="80">
-                <div class="skill-name">Django</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">80%</div>
-            </div>
-            <div class="skill-item" data-pct="70">
-                <div class="skill-name">Python</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">70%</div>
-            </div>
-            <div class="skill-item" data-pct="70">
-                <div class="skill-name">React JS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">70%</div>
-            </div>
-            <div class="skill-item" data-pct="60">
-                <div class="skill-name">CSS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">60%</div>
-            </div>
-            <div class="skill-item" data-pct="60">
-                <div class="skill-name">JavaScript</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">60%</div>
-            </div>
-            <div class="skill-item" data-pct="60">
-                <div class="skill-name">Flask</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">60%</div>
-            </div>
-            <div class="skill-item" data-pct="60">
-                <div class="skill-name">FastAPI</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">60%</div>
-            </div>
-            <div class="skill-item" data-pct="60">
-                <div class="skill-name">C / C++</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">60%</div>
-            </div>
-            <div class="skill-item" data-pct="85">
-                <div class="skill-name">Node JS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">85%</div>
-            </div>
-            <div class="skill-item" data-pct="85">
-                <div class="skill-name">Express JS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">85%</div>
-            </div>
-            <div class="skill-item" data-pct="80">
-                <div class="skill-name">Next JS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">80%</div>
-            </div>
-            <div class="skill-item" data-pct="80">
-                <div class="skill-name">TypeScript</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">80%</div>
-            </div>
-            <div class="skill-item" data-pct="75">
-                <div class="skill-name">Nest JS</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">75%</div>
-            </div>
-            <div class="skill-item" data-pct="78">
-                <div class="skill-name">React Native</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">78%</div>
-            </div>
-            <div class="skill-item" data-pct="78">
-                <div class="skill-name">Expo</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">78%</div>
-            </div>
-            <div class="skill-item" data-pct="70">
-                <div class="skill-name">Docker</div>
-                <div class="skill-bar">
-                    <div class="skill-fill"></div>
-                </div>
-                <div class="skill-pct">70%</div>
-            </div>
-        </div>
 
-        <!-- SKILLS PAGINATION CONTROLS -->
-        <div class="skills-pagination"
-            style="margin-top: 3.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
-            <div id="skills-page-info"
-                style="font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--fg2); letter-spacing: 0.05em;">
+            <!-- Frontend -->
+            <div class="stab-panel active" id="stab-frontend">
+                <div class="skills-grid" style="margin-top:0;">
+                    <div class="skill-item" data-pct="95"><div class="skill-name">HTML</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">95%</div></div>
+                    <div class="skill-item" data-pct="82"><div class="skill-name">CSS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">82%</div></div>
+                    <div class="skill-item" data-pct="85"><div class="skill-name">React JS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">85%</div></div>
+                    <div class="skill-item" data-pct="88"><div class="skill-name">Next JS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">88%</div></div>
+                </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                <button id="skills-prev-btn" class="btn"
-                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
-                    onclick="changeSkillsPage(-1)">
-                    <i class="fas fa-arrow-left" style="font-size: 0.78rem;"></i>
-                    <span data-en="Prev" data-ar="السابق">Prev</span>
-                </button>
-                <div id="skills-page-numbers" style="display: flex; align-items: center; gap: 0.5rem;"></div>
-                <button id="skills-next-btn" class="btn"
-                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
-                    onclick="changeSkillsPage(1)">
-                    <span data-en="Next" data-ar="التالي">Next</span>
-                    <i class="fas fa-arrow-right" style="font-size: 0.78rem;"></i>
-                </button>
+
+            <!-- Backend -->
+            <div class="stab-panel" id="stab-backend">
+                <div class="skills-grid" style="margin-top:0;">
+                    <div class="skill-item" data-pct="90"><div class="skill-name">Django</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">90%</div></div>
+                    <div class="skill-item" data-pct="78"><div class="skill-name">Flask</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">78%</div></div>
+                    <div class="skill-item" data-pct="75"><div class="skill-name">FastAPI</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">75%</div></div>
+                    <div class="skill-item" data-pct="90"><div class="skill-name">Node JS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">90%</div></div>
+                    <div class="skill-item" data-pct="90"><div class="skill-name">Express JS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">90%</div></div>
+                    <div class="skill-item" data-pct="82"><div class="skill-name">Nest JS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">82%</div></div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="stab-panel" id="stab-mobile">
+                <div class="skills-grid" style="margin-top:0;">
+                    <div class="skill-item" data-pct="85"><div class="skill-name">React Native</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">85%</div></div>
+                    <div class="skill-item" data-pct="85"><div class="skill-name">Expo</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">85%</div></div>
+                </div>
+            </div>
+
+            <!-- Cloud & Hosting -->
+            <div class="stab-panel" id="stab-cloud">
+                <div class="skills-grid" style="margin-top:0;">
+                    <div class="skill-item" data-pct="76"><div class="skill-name">AWS</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">76%</div></div>
+                    <div class="skill-item" data-pct="82"><div class="skill-name">VPS / Linux</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">82%</div></div>
+                    <div class="skill-item" data-pct="80"><div class="skill-name">Nginx</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">80%</div></div>
+                    <div class="skill-item" data-pct="78"><div class="skill-name">Docker</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">78%</div></div>
+                    <div class="skill-item" data-pct="80"><div class="skill-name">DigitalOcean</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">80%</div></div>
+                    <div class="skill-item" data-pct="75"><div class="skill-name">Heroku</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">75%</div></div>
+                    <div class="skill-item" data-pct="83"><div class="skill-name">Cloudflare</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">83%</div></div>
+                    <div class="skill-item" data-pct="83"><div class="skill-name">Vercel</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">83%</div></div>
+                    <div class="skill-item" data-pct="80"><div class="skill-name">Railway</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">80%</div></div>
+                </div>
+            </div>
+
+            <!-- Languages / Systems -->
+            <div class="stab-panel" id="stab-systems">
+                <div class="skills-grid" style="margin-top:0;">
+                    <div class="skill-item" data-pct="88"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">88%</div></div>
+                    <div class="skill-item" data-pct="86"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">86%</div></div>
+                    <div class="skill-item" data-pct="85"><div class="skill-name">TypeScript</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">85%</div></div>
+                    <div class="skill-item" data-pct="65"><div class="skill-name">C / C++</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">65%</div></div>
+                </div>
             </div>
         </div>
 
@@ -2821,122 +2756,54 @@
             if (window.updateSkillsPagination) window.updateSkillsPagination();
         };
 
-        /* ─── SKILLS PAGINATION ─── */
-        let currentSkillsPage = 1;
-        const skillItemsList = Array.from(document.querySelectorAll('#tech-skills-grid .skill-item'));
-        const totalSkills = skillItemsList.length;
-
-        function getSkillsPerPage() {
-            // Mobile (width <= 600px): 5 skills per page
-            // Tablet / Desktop: 10 skills per page
-            return window.innerWidth <= 600 ? 5 : 10;
+        /* ─── SKILLS TABS ─── */
+        function switchSkillTab(cat, btn) {
+            // Toggle active button
+            document.querySelectorAll('.stab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // Toggle active panel
+            document.querySelectorAll('.stab-panel').forEach(p => p.classList.remove('active'));
+            const panel = document.getElementById('stab-' + cat);
+            if (!panel) return;
+            panel.classList.add('active');
+            // Animate fills in the newly-visible panel
+            panel.querySelectorAll('.skill-item').forEach(item => {
+                const fill = item.querySelector('.skill-fill');
+                if (!fill) return;
+                fill.style.width = '0';
+                setTimeout(() => requestAnimationFrame(() => {
+                    fill.style.width = item.dataset.pct + '%';
+                }), 30);
+            });
         }
-
-        function updateSkillsPagination() {
-            const skillsPerPage = getSkillsPerPage();
-            const totalSkillsPages = Math.ceil(totalSkills / skillsPerPage);
-
-            // Bounds check
-            if (currentSkillsPage > totalSkillsPages) {
-                currentSkillsPage = totalSkillsPages;
-            }
-            if (currentSkillsPage < 1) {
-                currentSkillsPage = 1;
-            }
-
-            const startIdx = (currentSkillsPage - 1) * skillsPerPage;
-            const endIdx = startIdx + skillsPerPage;
-
-            // Show/hide skills
-            skillItemsList.forEach((item, index) => {
-                if (index >= startIdx && index < endIdx) {
-                    item.style.display = 'flex';
-                    // Re-trigger visual fills after display:flex has painted
-                    const pct = item.dataset.pct;
-                    const fill = item.querySelector('.skill-fill');
-                    if (fill) {
-                        fill.style.width = '0'; // reset first so transition re-fires
-                        setTimeout(() => {
-                            requestAnimationFrame(() => {
-                                fill.style.width = pct + '%';
+        // Animate fills on initial active tab when section scrolls into view
+        const skillTabsEl = document.getElementById('skills-tabs');
+        if (skillTabsEl) {
+            const tabObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        const activePanel = skillTabsEl.querySelector('.stab-panel.active');
+                        if (activePanel) {
+                            activePanel.querySelectorAll('.skill-item').forEach(item => {
+                                const fill = item.querySelector('.skill-fill');
+                                if (fill) {
+                                    fill.style.width = '0';
+                                    setTimeout(() => requestAnimationFrame(() => {
+                                        fill.style.width = item.dataset.pct + '%';
+                                    }), 30);
+                                }
                             });
-                        }, 30);
+                        }
+                        tabObs.unobserve(e.target);
                     }
-                } else {
-                    item.style.display = 'none';
-                    const fill = item.querySelector('.skill-fill');
-                    if (fill) fill.style.width = '0'; // reset hidden items
-                }
-            });
-
-            // Update Info text
-            const displayStart = startIdx + 1;
-            const displayEnd = Math.min(endIdx, totalSkills);
-            const infoEl = document.getElementById('skills-page-info');
-            if (infoEl) {
-                if (isAr) {
-                    infoEl.textContent = `عرض ${displayStart}–${displayEnd} من ${totalSkills} مهارات`;
-                } else {
-                    infoEl.textContent = `Showing ${displayStart}–${displayEnd} of ${totalSkills} skills`;
-                }
-            }
-
-            // Render numeric page buttons
-            const numContainer = document.getElementById('skills-page-numbers');
-            if (numContainer) {
-                numContainer.innerHTML = '';
-                for (let i = 1; i <= totalSkillsPages; i++) {
-                    const btn = document.createElement('button');
-                    btn.className = `skills-page-btn ${i === currentSkillsPage ? 'active' : ''}`;
-                    btn.textContent = i.toString().padStart(2, '0');
-                    btn.onclick = () => {
-                        currentSkillsPage = i;
-                        updateSkillsPagination();
-                        scrollToSkills();
-                    };
-                    numContainer.appendChild(btn);
-                }
-            }
-
-            // Enable/disable navigation buttons
-            const prevBtn = document.getElementById('skills-prev-btn');
-            const nextBtn = document.getElementById('skills-next-btn');
-            if (prevBtn) prevBtn.disabled = currentSkillsPage === 1;
-            if (nextBtn) nextBtn.disabled = currentSkillsPage === totalSkillsPages;
+                });
+            }, { threshold: 0.15 });
+            tabObs.observe(skillTabsEl);
         }
 
-        function changeSkillsPage(dir) {
-            const skillsPerPage = getSkillsPerPage();
-            const totalSkillsPages = Math.ceil(totalSkills / skillsPerPage);
-            const newPage = currentSkillsPage + dir;
-            if (newPage >= 1 && newPage <= totalSkillsPages) {
-                currentSkillsPage = newPage;
-                updateSkillsPagination();
-                scrollToSkills();
-            }
-        }
 
-        function scrollToSkills() {
-            const sec = document.getElementById('skills');
-            if (sec) {
-                sec.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
 
-        // Initialize skills pagination
-        if (document.readyState === 'loading') {
-            window.addEventListener('DOMContentLoaded', () => {
-                updateSkillsPagination();
-            });
-        } else {
-            updateSkillsPagination();
-        }
 
-        window.addEventListener('resize', () => {
-            updateSkillsPagination();
-        });
-
-        window.updateSkillsPagination = updateSkillsPagination;
 
         /* ─── SCROLLSPY WITH ANIMATED UNDERLINE ─── */
         const spySections = document.querySelectorAll('section[id]');
