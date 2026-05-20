@@ -1672,6 +1672,49 @@
         .stab-panel.active {
             display: block;
         }
+
+        /* ─── PROJECT TABS ─── */
+        .proj-tab-panel {
+            display: none;
+        }
+
+        .proj-tab-panel.active {
+            display: block;
+        }
+
+        .proj-live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.18rem 0.55rem;
+            border-radius: 2px;
+            background: rgba(34,197,94,0.12);
+            color: #22c55e;
+            border: 1px solid rgba(34,197,94,0.3);
+            vertical-align: middle;
+            margin-left: 0.5rem;
+            position: relative;
+            top: -2px;
+        }
+
+        .proj-live-badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
     </style>
 </head>
 
@@ -1869,7 +1912,7 @@
                 <button class="stab-btn" data-cat="backend" data-en="Backend" data-ar="الخوادم" onclick="switchSkillTab('backend', this)">Backend</button>
                 <button class="stab-btn" data-cat="mobile" data-en="Mobile" data-ar="الجوال" onclick="switchSkillTab('mobile', this)">Mobile</button>
                 <button class="stab-btn" data-cat="cloud" data-en="Cloud &amp; Hosting" data-ar="السحابة والاستضافة" onclick="switchSkillTab('cloud', this)">Cloud &amp; Hosting</button>
-                <button class="stab-btn" data-cat="systems" data-en="Languages" data-ar="اللغات" onclick="switchSkillTab('systems', this)">Languages</button>
+                <button class="stab-btn" data-cat="systems" data-en="Languages &amp; Git" data-ar="اللغات و Git" onclick="switchSkillTab('systems', this)">Languages &amp; Git</button>
             </div>
 
             <!-- Frontend -->
@@ -1924,6 +1967,8 @@
                     <div class="skill-item" data-pct="86"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">86%</div></div>
                     <div class="skill-item" data-pct="85"><div class="skill-name">TypeScript</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">85%</div></div>
                     <div class="skill-item" data-pct="65"><div class="skill-name">C / C++</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">65%</div></div>
+                    <div class="skill-item" data-pct="92"><div class="skill-name">Git</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">92%</div></div>
+                    <div class="skill-item" data-pct="94"><div class="skill-name">GitHub</div><div class="skill-bar"><div class="skill-fill"></div></div><div class="skill-pct">94%</div></div>
                 </div>
             </div>
         </div>
@@ -2005,321 +2050,169 @@
     <section id="projects">
         <div class="sec-label" data-num="03" data-en="Projects" data-ar="المشاريع">Projects</div>
         <h2 class="sec-title reveal" data-en="Featured<br>Work" data-ar="أبرز<br>الأعمال">Featured<br>Work</h2>
-        <div class="proj-list" style="margin-top:4rem">
 
-            <div class="proj-item reveal">
-                <div class="proj-num">001</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank"
-                        class="proj-title">SocialSphere</a>
-                    <p class="proj-desc"
-                        data-en="A full-featured Django social media platform with real-time WebSocket chat, group messaging, fuzzy search with smart suggestions, live notifications, post tagging, multi-image uploads, and a complete follow system."
-                        data-ar="منصة تواصل اجتماعي متكاملة بـDjango تتضمن دردشة WebSocket حية، رسائل جماعية، بحث ذكي، إشعارات فورية، وسوم المنشورات، ورفع صور متعددة، ونظام متابعة.">
-                        A full-featured Django social media platform with real-time WebSocket chat, group messaging,
-                        fuzzy search with smart suggestions, live notifications, post tagging, multi-image uploads, and
-                        a complete follow system.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span
-                            class="proj-tag">Channels</span><span class="proj-tag">WebSockets</span><span
-                            class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">002</div>
-                <div>
-                    <a href="https://buildtrackerapp.com" target="_blank" class="proj-title">BuildTracker App</a>
-                    <p class="proj-desc"
-                        data-en="A construction and project tracking application that helps teams manage builds, monitor milestones, and coordinate across stakeholders — live in production."
-                        data-ar="تطبيق تتبع البناء والمشاريع يساعد الفرق على إدارة الأعمال ومراقبة المعالم والتنسيق — يعمل حالياً في الإنتاج.">
-                        A construction and project tracking application that helps teams manage builds, monitor
-                        milestones, and coordinate across stakeholders — live in production.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Fullstack</span><span
-                            class="proj-tag">Django</span><span class="proj-tag">Python</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://buildtrackerapp.com" target="_blank" class="proj-link"><i
-                            class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">003</div>
-                <div>
-                    <a href="https://skprojects.tech/" target="_blank" class="proj-title">SK Projects</a>
-                    <p class="proj-desc"
-                        data-en="A highly customized agency and project management web platform coordinating live workflows, custom project specifications, client payments, and automated progress updates."
-                        data-ar="منصة ويب مخصصة لإدارة المشاريع والوكالات، تقوم بتنسيق تدفقات العمل، ومواصفات المشاريع للعملاء، والمدفوعات الآمنة، وتحديثات التقدم الفورية.">
-                        A highly customized agency and project management web platform coordinating live workflows,
-                        custom project specifications, client payments, and automated progress updates.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Fullstack</span><span
-                            class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span
-                            class="proj-tag">React</span><span class="proj-tag">API</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://skprojects.tech/" target="_blank" class="proj-link"><i
-                            class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">004</div>
-                <div>
-                    <a href="https://orr.solutions" target="_blank" class="proj-title">ORR Solutions</a>
-                    <p class="proj-desc"
-                        data-en="A professional business solutions platform serving real clients — clean design with a robust backend delivering measurable results."
-                        data-ar="منصة حلول أعمال احترافية تخدم عملاء حقيقيين — تصميم أنيق بخادم قوي يحقق نتائج ملموسة.">
-                        A professional business solutions platform serving real clients — clean design with a robust
-                        backend delivering measurable results.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Fullstack</span><span
-                            class="proj-tag">Python</span><span class="proj-tag">Web Platform</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://orr.solutions" target="_blank" class="proj-link"><i
-                            class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">005</div>
-                <div>
-                    <a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-title">ScaleForgeLabs</a>
-                    <p class="proj-desc"
-                        data-en="A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one."
-                        data-ar="منصة شركة ناشئة لتسريع المشاريع الرقمية — مبنية بأداء عالٍ وبنية تحتية قابلة للتوسع.">
-                        A tech startup platform focused on scaling digital ventures — built with performance, UX, and
-                        scalable infrastructure from day one.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">React</span><span
-                            class="proj-tag">Fullstack</span><span class="proj-tag">Startup</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-link"><i
-                            class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">006</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank"
-                        class="proj-title">ErrandLink</a>
-                    <p class="proj-desc"
-                        data-en="A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based location discovery, and real-time Socket.io chat connecting requesters and helpers."
-                        data-ar="خلفية برمجية لسوق المهام المصغرة المجتمعي تدعم نظام المحفظة والضمان الآمن، واكتشاف المواقع باستخدام Haversine، ودردشة Socket.io فورية.">
-                        A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based
-                        location discovery, and real-time Socket.io chat connecting requesters and helpers.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Node.js</span><span
-                            class="proj-tag">Express</span><span class="proj-tag">Sequelize</span><span
-                            class="proj-tag">Socket.io</span><span class="proj-tag">JavaScript</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">007</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank"
-                        class="proj-title">SwiftCart-Pro</a>
-                    <p class="proj-desc"
-                        data-en="A robust e-commerce API featuring secure JWT authentication, rich product cataloging, secure Paystack checkout, administrative inventory analytics, and automated email order receipts."
-                        data-ar="واجهة برمجة تطبيقات قوية للتجارة الإلكترونية تتميز بمصادقة JWT الآمنة، وكتالوج منتجات غني، ودفع Paystack آمن، وتحليلات المخزون الإدارية.">
-                        A robust e-commerce API featuring secure JWT authentication, rich product cataloging, secure
-                        Paystack checkout, administrative inventory analytics, and automated email order receipts.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Node.js</span><span
-                            class="proj-tag">Express</span><span class="proj-tag">MongoDB</span><span
-                            class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">008</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank"
-                        class="proj-title">WhisperSend</a>
-                    <p class="proj-desc"
-                        data-en="A secure anonymous messaging web application built with Django that allows users to receive secret feedback or messages via a shareable personal inbox link."
-                        data-ar="تطبيق ويب آمن لإرسال الرسائل المجهولة مبني بـ Django يتيح للمستخدمين تلقي التعليقات السرية عبر رابط صندوق بريد شخصي قابل للمشاركة.">
-                        A secure anonymous messaging web application built with Django that allows users to receive
-                        secret feedback or messages via a shareable personal inbox link.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Python</span><span
-                            class="proj-tag">HTML/CSS</span><span class="proj-tag">Security</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">009</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/medvaults" target="_blank"
-                        class="proj-title">medvaults</a>
-                    <p class="proj-desc"
-                        data-en="A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio notifications, AI food allergen detection, and a secure healthcare wallet via Paystack."
-                        data-ar="منصة صحية وطارئة شاملة تتميز برموز QR الطبية الذكية، وإشعارات Twilio الآلية، واكتشاف مسببات الحساسية بالذكاء الاصطناعي، ومحفظة دفع Paystack آمنة.">
-                        A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio
-                        notifications, AI food allergen detection, and a secure healthcare wallet via Paystack.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Twilio
-                            API</span><span class="proj-tag">AI Detection</span><span
-                            class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/medvaults" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">010</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank"
-                        class="proj-title">VideoMeet</a>
-                    <p class="proj-desc"
-                        data-en="A secure Django-based video conferencing application enabling users to create and join virtual meeting rooms with session management and a customizable dashboard."
-                        data-ar="تطبيق آمن لعقد مؤتمرات الفيديو مبني بـ Django يتيح للمستخدمين إنشاء غرف اجتماعات افتراضية والانضمام إليها مع إدارة الجلسات ولوحة تحكم مخصصة.">
-                        A secure Django-based video conferencing application enabling users to create and join virtual
-                        meeting rooms with session management and a customizable dashboard.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">WebRTC</span><span
-                            class="proj-tag">Python</span><span class="proj-tag">Session Auth</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">011</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/EduLearn" target="_blank"
-                        class="proj-title">EduLearn</a>
-                    <p class="proj-desc"
-                        data-en="A comprehensive Django-based Learning Management System (LMS) that enables online course creation, enrollment tracking, Paystack payment processing, and interactive learning experiences."
-                        data-ar="نظام إدارة تعلم متكامل (LMS) مبني بـ Django يتيح إنشاء الدورات التدريبية عبر الإنترنت، وتتبع التسجيل، ومعالجة الدفع عبر Paystack وتجارب تعلم تفاعلية.">
-                        A comprehensive Django-based Learning Management System (LMS) that enables online course
-                        creation, enrollment tracking, Paystack payment processing, and interactive learning
-                        experiences.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">LMS</span><span
-                            class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span
-                            class="proj-tag">PostgreSQL</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/EduLearn" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">012</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/EduPresence" target="_blank"
-                        class="proj-title">EduPresence</a>
-                    <p class="proj-desc"
-                        data-en="A comprehensive Django-based attendance system using real-time OpenCV facial recognition and geolocation verification (GPS) to ensure secure, location-based classroom check-ins."
-                        data-ar="نظام حضور متكامل مبني بـ Django يستخدم تقنية التعرف على الوجوه OpenCV والتحقق الجغرافي (GPS) لضمان تسجيل الحضور الآمن في الفصول الدراسية.">
-                        A comprehensive Django-based attendance system using real-time OpenCV facial recognition and
-                        geolocation verification (GPS) to ensure secure, location-based classroom check-ins.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">OpenCV</span><span
-                            class="proj-tag">Face Recognition</span><span class="proj-tag">Geolocation</span><span
-                            class="proj-tag">Python</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/EduPresence" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">013</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-title">recyclu</a>
-                    <p class="proj-desc"
-                        data-en="A complete recycling and sustainability platform that rewards users with virtual coins verified by partner companies, utilizing AI image classification for waste identification."
-                        data-ar="منصة إعادة تدوير واستدامة متكاملة تكافئ المستخدمين بعملات افتراضية معتمدة من شركات شريكة، باستخدام تصنيف صور الذكاء الاصطناعي لتحديد النفايات.">
-                        A complete recycling and sustainability platform that rewards users with virtual coins verified
-                        by partner companies, utilizing AI image classification for waste identification.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">AI Image
-                            Recognition</span><span class="proj-tag">WebSockets</span><span
-                            class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="proj-item reveal">
-                <div class="proj-num">014</div>
-                <div>
-                    <a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank"
-                        class="proj-title">CollabBlog</a>
-                    <p class="proj-desc"
-                        data-en="A comprehensive, production-ready blog platform built with Django and Django REST Framework that includes premium content, Paystack payment integration, collaboration features, and advanced user management."
-                        data-ar="منصة مدونة متكاملة وجاهزة للإنتاج مبنية بـ Django و Django REST Framework تتضمن محتوى مميزاً، بوابات دفع Paystack، ميزات التعاون وإدارة المستخدمين المتقدمة.">
-                        A comprehensive, production-ready blog platform built with Django and Django REST Framework that
-                        includes premium content, Paystack payment integration, collaboration features, and advanced
-                        user management.
-                    </p>
-                    <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">REST
-                            API</span><span class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span
-                            class="proj-tag">PostgreSQL</span></div>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank" class="proj-link"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-
+        <!-- PROJECT TABS -->
+        <div class="stab-nav reveal" style="margin-top:3.5rem;" id="proj-tab-nav">
+            <button class="stab-btn active" onclick="switchProjTab('all', this)" data-en="All" data-ar="الكل">All</button>
+            <button class="stab-btn" onclick="switchProjTab('live', this)" data-en="🟢 Live" data-ar="🟢 مباشر">🟢 Live</button>
+            <button class="stab-btn" onclick="switchProjTab('github', this)" data-en="GitHub" data-ar="GitHub">GitHub</button>
         </div>
 
-        <!-- PAGINATION CONTROLS -->
-        <div class="proj-pagination"
-            style="margin-top: 3.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
-            <div id="proj-page-info"
-                style="font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--fg2); letter-spacing: 0.05em;">
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                <button id="proj-prev-btn" class="btn"
-                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
-                    onclick="changeProjPage(-1)">
-                    <i class="fas fa-arrow-left" style="font-size: 0.78rem;"></i>
-                    <span data-en="Prev" data-ar="السابق">Prev</span>
-                </button>
-                <div id="proj-page-numbers" style="display: flex; align-items: center; gap: 0.5rem;"></div>
-                <button id="proj-next-btn" class="btn"
-                    style="padding: 0.6rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-radius: 4px; font-size: 0.88rem; min-width: 100px; justify-content: center;"
-                    onclick="changeProjPage(1)">
-                    <span data-en="Next" data-ar="التالي">Next</span>
-                    <i class="fas fa-arrow-right" style="font-size: 0.78rem;"></i>
-                </button>
+        <!-- ALL PROJECTS -->
+        <div class="proj-tab-panel active" id="proj-tab-all">
+            <div class="proj-list" style="margin-top:2rem">
+
+                <div class="proj-item reveal" data-type="live">
+                    <div class="proj-num">001</div>
+                    <div>
+                        <a href="https://buildtrackerapp.com" target="_blank" class="proj-title">BuildTracker App <span class="proj-live-badge">Live</span></a>
+                        <p class="proj-desc" data-en="A construction and project tracking application that helps teams manage builds, monitor milestones, and coordinate across stakeholders — live in production." data-ar="تطبيق تتبع البناء والمشاريع يساعد الفرق على إدارة الأعمال ومراقبة المعالم والتنسيق — يعمل حالياً في الإنتاج.">A construction and project tracking application that helps teams manage builds, monitor milestones, and coordinate across stakeholders — live in production.</p>
+                        <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Django</span><span class="proj-tag">Python</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://buildtrackerapp.com" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="live">
+                    <div class="proj-num">002</div>
+                    <div>
+                        <a href="https://skprojects.tech/" target="_blank" class="proj-title">SK Projects <span class="proj-live-badge">Live</span></a>
+                        <p class="proj-desc" data-en="A highly customized agency and project management web platform coordinating live workflows, custom project specifications, client payments, and automated progress updates." data-ar="منصة ويب مخصصة لإدارة المشاريع والوكالات.">A highly customized agency and project management web platform coordinating live workflows, custom project specifications, client payments, and automated progress updates.</p>
+                        <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">React</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://skprojects.tech/" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="live">
+                    <div class="proj-num">003</div>
+                    <div>
+                        <a href="https://orr.solutions" target="_blank" class="proj-title">ORR Solutions <span class="proj-live-badge">Live</span></a>
+                        <p class="proj-desc" data-en="A professional business solutions platform serving real clients — clean design with a robust backend delivering measurable results." data-ar="منصة حلول أعمال احترافية تخدم عملاء حقيقيين.">A professional business solutions platform serving real clients — clean design with a robust backend delivering measurable results.</p>
+                        <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Python</span><span class="proj-tag">Web Platform</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://orr.solutions" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="live">
+                    <div class="proj-num">004</div>
+                    <div>
+                        <a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-title">ScaleForgeLabs <span class="proj-live-badge">Live</span></a>
+                        <p class="proj-desc" data-en="A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one." data-ar="منصة شركة ناشئة لتسريع المشاريع الرقمية.">A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one.</p>
+                        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Fullstack</span><span class="proj-tag">Startup</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">005</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank" class="proj-title">SocialSphere</a>
+                        <p class="proj-desc" data-en="A full-featured Django social media platform with real-time WebSocket chat, group messaging, fuzzy search with smart suggestions, live notifications, post tagging, multi-image uploads, and a complete follow system." data-ar="منصة تواصل اجتماعي متكاملة بـDjango تتضمن دردشة WebSocket حية، رسائل جماعية، بحث ذكي، إشعارات فورية.">A full-featured Django social media platform with real-time WebSocket chat, group messaging, fuzzy search, live notifications, post tagging, multi-image uploads, and a complete follow system.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Channels</span><span class="proj-tag">WebSockets</span><span class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">006</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank" class="proj-title">ErrandLink</a>
+                        <p class="proj-desc" data-en="A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based location discovery, and real-time Socket.io chat connecting requesters and helpers." data-ar="خلفية برمجية لسوق المهام المصغرة المجتمعي تدعم نظام المحفظة والضمان الآمن.">A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based location discovery, and real-time Socket.io chat.</p>
+                        <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">Sequelize</span><span class="proj-tag">Socket.io</span><span class="proj-tag">JavaScript</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">007</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank" class="proj-title">SwiftCart-Pro</a>
+                        <p class="proj-desc" data-en="A robust e-commerce API featuring secure JWT authentication, rich product cataloging, secure Paystack checkout, administrative inventory analytics, and automated email order receipts." data-ar="واجهة برمجة تطبيقات قوية للتجارة الإلكترونية.">A robust e-commerce API featuring secure JWT authentication, rich product cataloging, Paystack checkout, inventory analytics, and automated email receipts.</p>
+                        <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">008</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank" class="proj-title">WhisperSend</a>
+                        <p class="proj-desc" data-en="A secure anonymous messaging web application built with Django that allows users to receive secret feedback or messages via a shareable personal inbox link." data-ar="تطبيق ويب آمن لإرسال الرسائل المجهولة مبني بـ Django.">A secure anonymous messaging web application built with Django that allows users to receive secret feedback via a shareable personal inbox link.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Python</span><span class="proj-tag">HTML/CSS</span><span class="proj-tag">Security</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">009</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/medvaults" target="_blank" class="proj-title">MedVaults</a>
+                        <p class="proj-desc" data-en="A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio notifications, AI food allergen detection, and a secure healthcare wallet via Paystack." data-ar="منصة صحية وطارئة شاملة تتميز برموز QR الطبية الذكية.">A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio notifications, AI food allergen detection, and a secure healthcare wallet via Paystack.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Twilio API</span><span class="proj-tag">AI Detection</span><span class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/medvaults" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">010</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank" class="proj-title">VideoMeet</a>
+                        <p class="proj-desc" data-en="A secure Django-based video conferencing application enabling users to create and join virtual meeting rooms with session management and a customizable dashboard." data-ar="تطبيق آمن لعقد مؤتمرات الفيديو مبني بـ Django.">A secure Django-based video conferencing application enabling users to create and join virtual meeting rooms with session management and a customizable dashboard.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">WebRTC</span><span class="proj-tag">Python</span><span class="proj-tag">Session Auth</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">011</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/EduLearn" target="_blank" class="proj-title">EduLearn</a>
+                        <p class="proj-desc" data-en="A comprehensive Django-based Learning Management System (LMS) that enables online course creation, enrollment tracking, Paystack payment processing, and interactive learning experiences." data-ar="نظام إدارة تعلم متكامل (LMS) مبني بـ Django.">A comprehensive Django-based LMS enabling online course creation, enrollment tracking, Paystack payment processing, and interactive learning experiences.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">LMS</span><span class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span class="proj-tag">PostgreSQL</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduLearn" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">012</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/EduPresence" target="_blank" class="proj-title">EduPresence</a>
+                        <p class="proj-desc" data-en="A comprehensive Django-based attendance system using real-time OpenCV facial recognition and geolocation verification (GPS) to ensure secure, location-based classroom check-ins." data-ar="نظام حضور متكامل مبني بـ Django يستخدم تقنية التعرف على الوجوه.">A Django-based attendance system using real-time OpenCV facial recognition and GPS geolocation to ensure secure, location-based classroom check-ins.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">OpenCV</span><span class="proj-tag">Face Recognition</span><span class="proj-tag">Geolocation</span><span class="proj-tag">Python</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduPresence" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">013</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-title">Recyclu</a>
+                        <p class="proj-desc" data-en="A complete recycling and sustainability platform that rewards users with virtual coins verified by partner companies, utilizing AI image classification for waste identification." data-ar="منصة إعادة تدوير واستدامة متكاملة تكافئ المستخدمين بعملات افتراضية.">A recycling and sustainability platform rewarding users with virtual coins verified by partner companies, using AI image classification for waste identification.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">AI Image Recognition</span><span class="proj-tag">WebSockets</span><span class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
+                <div class="proj-item reveal" data-type="github">
+                    <div class="proj-num">014</div>
+                    <div>
+                        <a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank" class="proj-title">CollabBlog</a>
+                        <p class="proj-desc" data-en="A comprehensive, production-ready blog platform built with Django and Django REST Framework that includes premium content, Paystack payment integration, collaboration features, and advanced user management." data-ar="منصة مدونة متكاملة وجاهزة للإنتاج مبنية بـ Django.">A production-ready blog platform with Django REST Framework, premium content, Paystack payments, collaboration features, and advanced user management.</p>
+                        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">REST API</span><span class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span class="proj-tag">PostgreSQL</span></div>
+                    </div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                </div>
+
             </div>
         </div>
+
+        <!-- LIVE ONLY -->
+        <div class="proj-tab-panel" id="proj-tab-live"></div>
+
+        <!-- GITHUB ONLY -->
+        <div class="proj-tab-panel" id="proj-tab-github"></div>
 
     </section>
+
 
 
 
@@ -2666,95 +2559,7 @@
             setTimeout(() => { if (span) span.textContent = isAr ? 'إرسال الرسالة' : 'Send Message'; inputs.forEach(i => i.value = ''); }, 2800);
         }
 
-        /* ─── PORTFOLIO PAGINATION ─── */
-        const PROJS_PER_PAGE = 5;
-        let currentProjPage = 1;
-        const projItems = Array.from(document.querySelectorAll('.proj-list .proj-item'));
-        const totalProjs = projItems.length;
-        const totalProjPages = Math.ceil(totalProjs / PROJS_PER_PAGE);
 
-        function updateProjectsPagination() {
-            const startIdx = (currentProjPage - 1) * PROJS_PER_PAGE;
-            const endIdx = startIdx + PROJS_PER_PAGE;
-
-            // Show/hide projects
-            projItems.forEach((item, index) => {
-                if (index >= startIdx && index < endIdx) {
-                    item.style.display = 'grid';
-                    setTimeout(() => {
-                        item.classList.add('visible');
-                    }, 50);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Update Info text
-            const displayStart = startIdx + 1;
-            const displayEnd = Math.min(endIdx, totalProjs);
-            const infoEl = document.getElementById('proj-page-info');
-            if (infoEl) {
-                if (isAr) {
-                    infoEl.textContent = `عرض ${displayStart}–${displayEnd} من ${totalProjs} مشاريع`;
-                } else {
-                    infoEl.textContent = `Showing ${displayStart}–${displayEnd} of ${totalProjs} projects`;
-                }
-            }
-
-            // Render numeric page buttons
-            const numContainer = document.getElementById('proj-page-numbers');
-            if (numContainer) {
-                numContainer.innerHTML = '';
-                for (let i = 1; i <= totalProjPages; i++) {
-                    const btn = document.createElement('button');
-                    btn.className = `proj-page-btn ${i === currentProjPage ? 'active' : ''}`;
-                    btn.textContent = i.toString().padStart(2, '0');
-                    btn.onclick = () => {
-                        currentProjPage = i;
-                        updateProjectsPagination();
-                        scrollToProjects();
-                    };
-                    numContainer.appendChild(btn);
-                }
-            }
-
-            // Enable/disable navigation buttons
-            const prevBtn = document.getElementById('proj-prev-btn');
-            const nextBtn = document.getElementById('proj-next-btn');
-            if (prevBtn) prevBtn.disabled = currentProjPage === 1;
-            if (nextBtn) nextBtn.disabled = currentProjPage === totalProjPages;
-        }
-
-        function changeProjPage(dir) {
-            const newPage = currentProjPage + dir;
-            if (newPage >= 1 && newPage <= totalProjPages) {
-                currentProjPage = newPage;
-                updateProjectsPagination();
-                scrollToProjects();
-            }
-        }
-
-        function scrollToProjects() {
-            const sec = document.getElementById('projects');
-            if (sec) {
-                sec.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Initialize pagination immediately or on DOM ready
-        if (document.readyState === 'loading') {
-            window.addEventListener('DOMContentLoaded', () => {
-                updateProjectsPagination();
-            });
-        } else {
-            updateProjectsPagination();
-        }
-
-        // Set global hook so toggleLang can trigger updates
-        window.updatePagination = () => {
-            updateProjectsPagination();
-            if (window.updateSkillsPagination) window.updateSkillsPagination();
-        };
 
         /* ─── SKILLS TABS ─── */
         function switchSkillTab(cat, btn) {
@@ -2800,8 +2605,55 @@
             }, { threshold: 0.15 });
             tabObs.observe(skillTabsEl);
         }
+        /* ─── PROJECT TABS ─── */
+        function switchProjTab(type, btn) {
+            // Scope button toggle to the project nav only
+            document.querySelectorAll('#proj-tab-nav .stab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
+            // Toggle panels
+            document.querySelectorAll('.proj-tab-panel').forEach(p => p.classList.remove('active'));
+            const panel = document.getElementById('proj-tab-' + type);
+            if (!panel) return;
 
+            // Populate Live / GitHub panels on first visit by cloning from All
+            if (type !== 'all' && panel.children.length === 0) {
+                const allItems = document.querySelectorAll('#proj-tab-all .proj-item');
+                const list = document.createElement('div');
+                list.className = 'proj-list';
+                list.style.marginTop = '2rem';
+                let num = 1;
+                allItems.forEach(item => {
+                    if (item.dataset.type === type) {
+                        const clone = item.cloneNode(true);
+                        clone.querySelector('.proj-num').textContent = String(num).padStart(3, '0');
+                        num++;
+                        list.appendChild(clone);
+                    }
+                });
+                panel.appendChild(list);
+            }
+            panel.classList.add('active');
+        }
+
+        // Fix skill tab buttons scoping so they don't clash with project tab buttons
+        const origSwitchSkillTab = switchSkillTab;
+        window.switchSkillTab = function(cat, btn) {
+            document.querySelectorAll('#stab-nav .stab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.stab-panel').forEach(p => p.classList.remove('active'));
+            const panel = document.getElementById('stab-' + cat);
+            if (!panel) return;
+            panel.classList.add('active');
+            panel.querySelectorAll('.skill-item').forEach(item => {
+                const fill = item.querySelector('.skill-fill');
+                if (!fill) return;
+                fill.style.width = '0';
+                setTimeout(() => requestAnimationFrame(() => {
+                    fill.style.width = item.dataset.pct + '%';
+                }), 30);
+            });
+        };
 
 
 
