@@ -5,12 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ojugbele Abdullateef — Fullstack Developer</title>
+    <meta name="description" content="Ojugbele Abdullateef — Professional Fullstack Developer based in Lagos, Nigeria. Specializing in high-performance web applications, frontend design, and scalable backend services." />
+    <meta name="keywords" content="Ojugbele Abdullateef, Fullstack Developer, Web Developer, React, Django, Node.js, Portfolio, Lagos, Nigeria" />
+    <meta name="author" content="Ojugbele Abdullateef" />
+    <meta name="robots" content="index, follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
     <style>
         /* ─── THEME TOKENS ─── */
@@ -22,8 +27,8 @@
             --border: #222;
             --borderL: #2e2e2e;
             --fg: #f0f0f0;
-            --fg2: #999;
-            --fg3: #444;
+            --fg2: #cccccc; /* Increased from #999 for contrast (WCAG AA compliant) */
+            --fg3: #8a8a8a; /* Increased from #444 for contrast (WCAG AA compliant) */
             --accent: #f0f0f0;
             --tag-bg: #1e1e1e;
             --shadow: rgba(0, 0, 0, .6);
@@ -39,8 +44,8 @@
             --border: #ddd;
             --borderL: #ccc;
             --fg: #111;
-            --fg2: #555;
-            --fg3: #aaa;
+            --fg2: #333333; /* Darkened from #555 for contrast */
+            --fg3: #6b6b6b; /* Darkened from #aaa for contrast (WCAG AA compliant) */
             --accent: #111;
             --tag-bg: #eee;
             --shadow: rgba(0, 0, 0, .12);
@@ -1735,8 +1740,8 @@
             <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
         </ul>
         <div class="nav-controls">
-            <button class="ctrl-btn lang-btn" id="langBtn" title="Toggle language" onclick="toggleLang()">AR</button>
-            <button class="ctrl-btn" id="themeBtn" title="Toggle theme" onclick="toggleTheme()">
+            <button class="ctrl-btn lang-btn" id="langBtn" title="Toggle language" aria-label="Toggle language" onclick="toggleLang()">AR</button>
+            <button class="ctrl-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme" onclick="toggleTheme()">
                 <i class="fas fa-moon theme-icon" id="themeIcon"></i>
             </button>
             <button class="ctrl-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu"
@@ -1807,10 +1812,10 @@
                 Available for freelance work
             </div>
             <div class="sidebar-socials">
-                <a href="https://github.com/Abdullateef2006/" target="_blank" class="soc-link"><i
+                <a href="https://github.com/Abdullateef2006/" target="_blank" class="soc-link" aria-label="GitHub Profile"><i
                         class="fab fa-github"></i></a>
-                <a href="https://wa.link/6tu8io" target="_blank" class="soc-link"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:abdullateefCoding@gmail.com" class="soc-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.link/6tu8io" target="_blank" class="soc-link" aria-label="WhatsApp Contact"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:abdullateefCoding@gmail.com" class="soc-link" aria-label="Email Me"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </aside>
@@ -2069,7 +2074,7 @@
                         <p class="proj-desc" data-en="A construction and project tracking application that helps teams manage builds, monitor milestones, and coordinate across stakeholders — live in production." data-ar="تطبيق تتبع البناء والمشاريع يساعد الفرق على إدارة الأعمال ومراقبة المعالم والتنسيق — يعمل حالياً في الإنتاج.">A construction and project tracking application that helps teams manage builds, monitor milestones, and coordinate across stakeholders — live in production.</p>
                         <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Django</span><span class="proj-tag">Python</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://buildtrackerapp.com" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                    <div class="proj-links"><a href="https://buildtrackerapp.com" target="_blank" class="proj-link" aria-label="Visit BuildTracker App website"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="live">
@@ -2079,7 +2084,7 @@
                         <p class="proj-desc" data-en="A highly customized agency and project management web platform coordinating live workflows, custom project specifications, client payments, and automated progress updates." data-ar="منصة ويب مخصصة لإدارة المشاريع والوكالات.">A highly customized agency and project management web platform coordinating live workflows, custom project specifications, client payments, and automated progress updates.</p>
                         <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">React</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://skprojects.tech/" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                    <div class="proj-links"><a href="https://skprojects.tech/" target="_blank" class="proj-link" aria-label="Visit SK Projects website"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="live">
@@ -2089,17 +2094,17 @@
                         <p class="proj-desc" data-en="A professional business solutions platform serving real clients — clean design with a robust backend delivering measurable results." data-ar="منصة حلول أعمال احترافية تخدم عملاء حقيقيين.">A professional business solutions platform serving real clients — clean design with a robust backend delivering measurable results.</p>
                         <div class="proj-tags"><span class="proj-tag">Fullstack</span><span class="proj-tag">Python</span><span class="proj-tag">Web Platform</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://orr.solutions" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                    <div class="proj-links"><a href="https://orr.solutions" target="_blank" class="proj-link" aria-label="Visit ORR Solutions website"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="live">
                     <div class="proj-num">004</div>
                     <div>
                         <a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-title">ScaleForgeLabs <span class="proj-live-badge">Live</span></a>
-                        <p class="proj-desc" data-en="A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one." data-ar="منصة شركة ناشئة لتسريع المشاريع الرقمية.">A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one.</p>
+                        <p class="proj-desc" data-en="A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one." data-ar="منصة شركة ناشئة لتسريع المشاريع الرقمية.">ScaleForgeLabs – A tech startup platform focused on scaling digital ventures — built with performance, UX, and scalable infrastructure from day one.</p>
                         <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Fullstack</span><span class="proj-tag">Startup</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-link"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                    <div class="proj-links"><a href="https://www.scaleforgelabs.com/" target="_blank" class="proj-link" aria-label="Visit ScaleForgeLabs website"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2109,7 +2114,7 @@
                         <p class="proj-desc" data-en="A full-featured Django social media platform with real-time WebSocket chat, group messaging, fuzzy search with smart suggestions, live notifications, post tagging, multi-image uploads, and a complete follow system." data-ar="منصة تواصل اجتماعي متكاملة بـDjango تتضمن دردشة WebSocket حية، رسائل جماعية، بحث ذكي، إشعارات فورية.">A full-featured Django social media platform with real-time WebSocket chat, group messaging, fuzzy search, live notifications, post tagging, multi-image uploads, and a complete follow system.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Channels</span><span class="proj-tag">WebSockets</span><span class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SocialSphere" target="_blank" class="proj-link" aria-label="View SocialSphere repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2119,7 +2124,7 @@
                         <p class="proj-desc" data-en="A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based location discovery, and real-time Socket.io chat connecting requesters and helpers." data-ar="خلفية برمجية لسوق المهام المصغرة المجتمعي تدعم نظام المحفظة والضمان الآمن.">A community micro-task marketplace backend enabling secure transaction escrows, Haversine-based location discovery, and real-time Socket.io chat.</p>
                         <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">Sequelize</span><span class="proj-tag">Socket.io</span><span class="proj-tag">JavaScript</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/ErrandLink" target="_blank" class="proj-link" aria-label="View ErrandLink repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2129,7 +2134,7 @@
                         <p class="proj-desc" data-en="A robust e-commerce API featuring secure JWT authentication, rich product cataloging, secure Paystack checkout, administrative inventory analytics, and automated email order receipts." data-ar="واجهة برمجة تطبيقات قوية للتجارة الإلكترونية.">A robust e-commerce API featuring secure JWT authentication, rich product cataloging, Paystack checkout, inventory analytics, and automated email receipts.</p>
                         <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">Express</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/SwiftCart-Pro" target="_blank" class="proj-link" aria-label="View SwiftCart-Pro repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2139,7 +2144,7 @@
                         <p class="proj-desc" data-en="A secure anonymous messaging web application built with Django that allows users to receive secret feedback or messages via a shareable personal inbox link." data-ar="تطبيق ويب آمن لإرسال الرسائل المجهولة مبني بـ Django.">A secure anonymous messaging web application built with Django that allows users to receive secret feedback via a shareable personal inbox link.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Python</span><span class="proj-tag">HTML/CSS</span><span class="proj-tag">Security</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/WhisperSend" target="_blank" class="proj-link" aria-label="View WhisperSend repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2149,7 +2154,7 @@
                         <p class="proj-desc" data-en="A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio notifications, AI food allergen detection, and a secure healthcare wallet via Paystack." data-ar="منصة صحية وطارئة شاملة تتميز برموز QR الطبية الذكية.">A comprehensive health and emergency platform featuring smart medical QR codes, automated Twilio notifications, AI food allergen detection, and a secure healthcare wallet via Paystack.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Twilio API</span><span class="proj-tag">AI Detection</span><span class="proj-tag">Paystack</span><span class="proj-tag">JavaScript</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/medvaults" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/medvaults" target="_blank" class="proj-link" aria-label="View MedVaults repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2159,7 +2164,7 @@
                         <p class="proj-desc" data-en="A secure Django-based video conferencing application enabling users to create and join virtual meeting rooms with session management and a customizable dashboard." data-ar="تطبيق آمن لعقد مؤتمرات الفيديو مبني بـ Django.">A secure Django-based video conferencing application enabling users to create and join virtual meeting rooms with session management and a customizable dashboard.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">WebRTC</span><span class="proj-tag">Python</span><span class="proj-tag">Session Auth</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/VideoMeet" target="_blank" class="proj-link" aria-label="View VideoMeet repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2169,7 +2174,7 @@
                         <p class="proj-desc" data-en="A comprehensive Django-based Learning Management System (LMS) that enables online course creation, enrollment tracking, Paystack payment processing, and interactive learning experiences." data-ar="نظام إدارة تعلم متكامل (LMS) مبني بـ Django.">A comprehensive Django-based LMS enabling online course creation, enrollment tracking, Paystack payment processing, and interactive learning experiences.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">LMS</span><span class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span class="proj-tag">PostgreSQL</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduLearn" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduLearn" target="_blank" class="proj-link" aria-label="View EduLearn repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2179,7 +2184,7 @@
                         <p class="proj-desc" data-en="A comprehensive Django-based attendance system using real-time OpenCV facial recognition and geolocation verification (GPS) to ensure secure, location-based classroom check-ins." data-ar="نظام حضور متكامل مبني بـ Django يستخدم تقنية التعرف على الوجوه.">A Django-based attendance system using real-time OpenCV facial recognition and GPS geolocation to ensure secure, location-based classroom check-ins.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">OpenCV</span><span class="proj-tag">Face Recognition</span><span class="proj-tag">Geolocation</span><span class="proj-tag">Python</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduPresence" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/EduPresence" target="_blank" class="proj-link" aria-label="View EduPresence repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2189,7 +2194,7 @@
                         <p class="proj-desc" data-en="A complete recycling and sustainability platform that rewards users with virtual coins verified by partner companies, utilizing AI image classification for waste identification." data-ar="منصة إعادة تدوير واستدامة متكاملة تكافئ المستخدمين بعملات افتراضية.">A recycling and sustainability platform rewarding users with virtual coins verified by partner companies, using AI image classification for waste identification.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">AI Image Recognition</span><span class="proj-tag">WebSockets</span><span class="proj-tag">Redis</span><span class="proj-tag">Python</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/recyclu" target="_blank" class="proj-link" aria-label="View Recyclu repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
                 <div class="proj-item reveal" data-type="github">
@@ -2199,7 +2204,7 @@
                         <p class="proj-desc" data-en="A comprehensive, production-ready blog platform built with Django and Django REST Framework that includes premium content, Paystack payment integration, collaboration features, and advanced user management." data-ar="منصة مدونة متكاملة وجاهزة للإنتاج مبنية بـ Django.">A production-ready blog platform with Django REST Framework, premium content, Paystack payments, collaboration features, and advanced user management.</p>
                         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">REST API</span><span class="proj-tag">Paystack</span><span class="proj-tag">Python</span><span class="proj-tag">PostgreSQL</span></div>
                     </div>
-                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank" class="proj-link"><i class="fab fa-github"></i></a></div>
+                    <div class="proj-links"><a href="https://github.com/Abdullateef2006/CollabBlog" target="_blank" class="proj-link" aria-label="View CollabBlog repository on GitHub"><i class="fab fa-github"></i></a></div>
                 </div>
 
             </div>
@@ -2221,7 +2226,7 @@
         <div class="sec-label" data-num="04" data-en="Live" data-ar="مباشر">Live</div>
         <h2 class="sec-title reveal" data-en="Live in<br>Production" data-ar="يعمل<br>الآن">Live in<br>Production</h2>
         <div class="live-grid reveal">
-            <a href="https://buildtrackerapp.com" target="_blank" class="live-card">
+            <a href="https://buildtrackerapp.com" target="_blank" rel="noopener noreferrer" class="live-card">
                 <div class="live-top">
                     <div class="live-dot"></div><i class="fas fa-arrow-right live-arrow"></i>
                 </div>
@@ -2230,7 +2235,7 @@
                 <p class="live-desc" data-en="Construction & project management platform."
                     data-ar="منصة إدارة مشاريع البناء.">Construction &amp; project management platform.</p>
             </a>
-            <a href="https://skprojects.tech/" target="_blank" class="live-card">
+            <a href="https://skprojects.tech/" target="_blank" rel="noopener noreferrer" class="live-card">
                 <div class="live-top">
                     <div class="live-dot"></div><i class="fas fa-arrow-right live-arrow"></i>
                 </div>
@@ -2240,7 +2245,7 @@
                     data-ar="وكالة تطوير متكاملة ومنصة حلول رقمية حديثة.">Fullstack development agency &amp; modern
                     digital solutions platform.</p>
             </a>
-            <a href="https://orr.solutions" target="_blank" class="live-card">
+            <a href="https://orr.solutions" target="_blank" rel="noopener noreferrer" class="live-card">
                 <div class="live-top">
                     <div class="live-dot"></div><i class="fas fa-arrow-right live-arrow"></i>
                 </div>
@@ -2249,7 +2254,7 @@
                 <p class="live-desc" data-en="Professional business solutions for real clients."
                     data-ar="حلول أعمال احترافية لعملاء حقيقيين.">Professional business solutions for real clients.</p>
             </a>
-            <a href="https://www.scaleforgelabs.com/" target="_blank" class="live-card">
+            <a href="https://www.scaleforgelabs.com/" target="_blank" rel="noopener noreferrer" class="live-card">
                 <div class="live-top">
                     <div class="live-dot"></div><i class="fas fa-arrow-right live-arrow"></i>
                 </div>
@@ -2420,29 +2425,30 @@
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Abdullateef2006/" target="_blank" class="soc-link"><i
+                    <a href="https://github.com/Abdullateef2006/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="GitHub Profile"><i
                             class="fab fa-github"></i></a>
-                    <a href="https://wa.link/6tu8io" target="_blank" class="soc-link"><i
+                    <a href="https://wa.link/6tu8io" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="WhatsApp Contact"><i
                             class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:abdullateefCoding@gmail.com" class="soc-link"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:abdullateefCoding@gmail.com" class="soc-link" aria-label="Email Me"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="reveal">
-                <div class="form-group"><label class="form-label" data-en="Your Name" data-ar="اسمك">Your
-                        Name</label><input type="text" class="form-input" data-en-placeholder="John Doe"
-                        data-ar-placeholder="محمد أحمد" placeholder="John Doe" /></div>
-                <div class="form-group"><label class="form-label" data-en="Email Address"
-                        data-ar="البريد الإلكتروني">Email Address</label><input type="email" class="form-input"
-                        data-en-placeholder="john@example.com" data-ar-placeholder="example@gmail.com"
-                        placeholder="john@example.com" /></div>
-                <div class="form-group"><label class="form-label" data-en="Subject"
-                        data-ar="الموضوع">Subject</label><input type="text" class="form-input"
-                        data-en-placeholder="Project Inquiry" data-ar-placeholder="استفسار عن مشروع"
-                        placeholder="Project Inquiry" /></div>
-                <div class="form-group"><label class="form-label" data-en="Message"
-                        data-ar="الرسالة">Message</label><textarea class="form-ta"
-                        data-en-placeholder="Tell me about your project..." data-ar-placeholder="أخبرني عن مشروعك..."
-                        placeholder="Tell me about your project..."></textarea></div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-name" data-en="Your Name" data-ar="اسمك">Your Name</label>
+                    <input type="text" id="contact-name" class="form-input" data-en-placeholder="John Doe" data-ar-placeholder="محمد أحمد" placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-email" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
+                    <input type="email" id="contact-email" class="form-input" data-en-placeholder="john@example.com" data-ar-placeholder="example@gmail.com" placeholder="john@example.com" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                    <input type="text" id="contact-subject" class="form-input" data-en-placeholder="Project Inquiry" data-ar-placeholder="استفسار عن مشروع" placeholder="Project Inquiry" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-message" data-en="Message" data-ar="الرسالة">Message</label>
+                    <textarea id="contact-message" class="form-ta" data-en-placeholder="Tell me about your project..." data-ar-placeholder="أخبرني عن مشروعك..." placeholder="Tell me about your project..."></textarea>
+                </div>
                 <button class="btn btn-fill form-submit" onclick="sendForm(this)"><i class="fas fa-paper-plane"></i>
                     <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span></button>
             </div>
